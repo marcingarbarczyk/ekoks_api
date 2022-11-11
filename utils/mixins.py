@@ -1,33 +1,38 @@
+from django.contrib.admin.models import (
+    ADDITION,
+    CHANGE,
+    ContentType,
+    DELETION,
+    LogEntry,
+)
 from django.utils.translation import gettext as _
-from django.contrib.admin.models import  ADDITION, CHANGE, ContentType, DELETION, LogEntry
 
 
 class CustomLoggingMixin:
-
     def _visitor_ip_address(self):
-        x_forwarded_for = self.request.META.get('HTTP_X_FORWARDED_FOR')
+        x_forwarded_for = self.request.META.get("HTTP_X_FORWARDED_FOR")
         if x_forwarded_for:
-            ip = x_forwarded_for.split(',')[0]
+            ip = x_forwarded_for.split(",")[0]
         else:
-            ip = self.request.META.get('REMOTE_ADDR')
+            ip = self.request.META.get("REMOTE_ADDR")
         return ip
 
     def _visitor_agent(self):
-        return self.request.META['HTTP_USER_AGENT']
+        return self.request.META["HTTP_USER_AGENT"]
 
     def log(self, operation, instance):
         if operation == ADDITION:
-            action_message = _('Created')
+            action_message = _("Created")
         if operation == CHANGE:
-            action_message = _('Updated')
+            action_message = _("Updated")
         if operation == DELETION:
-            action_message = _('Deleted')
+            action_message = _("Deleted")
 
         message = {
-            'action': action_message,
-            'instance': str(instance),
-            'ip': self._visitor_ip_address(),
-            'agent': self._visitor_agent(),
+            "action": action_message,
+            "instance": str(instance),
+            "ip": self._visitor_ip_address(),
+            "agent": self._visitor_agent(),
         }
 
         LogEntry.objects.log_action(
@@ -36,7 +41,7 @@ class CustomLoggingMixin:
             object_id=instance.pk,
             object_repr=str(instance),
             action_flag=operation,
-            change_message=message
+            change_message=message,
         )
 
     def log_create(self, serializer):
@@ -50,7 +55,6 @@ class CustomLoggingMixin:
 
 
 class CustomLoggingViewSetMixin(CustomLoggingMixin):
-
     def perform_create(self, serializer):
         super().perform_create(serializer)
         self.log_create(serializer)

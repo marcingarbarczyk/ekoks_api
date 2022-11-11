@@ -1,7 +1,11 @@
 # membership/models.py
+from django.contrib.auth.models import (
+    PermissionsMixin,
+    AbstractBaseUser,
+    BaseUserManager,
+)
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from django.contrib.auth.models import PermissionsMixin, AbstractBaseUser, BaseUserManager
 
 from .common import ROLES
 
@@ -9,7 +13,7 @@ from .common import ROLES
 class CustomUserMenager(BaseUserManager):
     def create_user(self, username, email, password=None):
         if not email:
-            raise ValueError(_('Users must have an email address'))
+            raise ValueError(_("Users must have an email address"))
 
         user = self.model(
             username=username,
@@ -84,24 +88,19 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     is_admin = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
 
-    role = models.PositiveIntegerField(
-        _("User role"), choices=ROLES, default=1)
+    role = models.PositiveIntegerField(_("User role"), choices=ROLES, default=1)
 
-    join_date = models.DateTimeField(
-        _("User Join Date"),
-        auto_now_add=True)
-    last_loggin = models.DateTimeField(
-        _("Last loggin Date"),
-        auto_now_add=True)
+    join_date = models.DateTimeField(_("User Join Date"), auto_now_add=True)
+    last_loggin = models.DateTimeField(_("Last loggin Date"), auto_now_add=True)
 
     objects = CustomUserMenager()
 
-    USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = ['email']
+    USERNAME_FIELD = "username"
+    REQUIRED_FIELDS = ["email"]
 
     @property
     def full_name(self):
-        return '{} {} {}'.format(self.first_name, self.last_name, self.pk)
+        return "{} {} {}".format(self.first_name, self.last_name, self.pk)
 
     def __str__(self):
         return str(self.full_name)
