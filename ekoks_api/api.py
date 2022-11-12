@@ -14,11 +14,11 @@ schema_view_v1 = get_schema_view(
         license=openapi.License(name=""),
     ),
     public=True,
-    permission_classes=[permissions.AllowAny],
+    permission_classes=(permissions.AllowAny,),
 )
 
 urlpatterns = [
-    path("membership/", include("membership.urls")),
+    path("membership/", include("apps.membership.urls")),
     re_path(
         r"^swagger(?P<format>\.json|\.yaml)$",
         schema_view_v1.without_ui(cache_timeout=0),

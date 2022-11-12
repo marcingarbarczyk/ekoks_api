@@ -4,7 +4,7 @@ from django.utils.timezone import now
 User = get_user_model()
 
 
-class SetLastUserLoggin(object):
+class SetLastUserActivity(object):
     """
     A middleware class that captures user login dates
     """
@@ -15,7 +15,7 @@ class SetLastUserLoggin(object):
     def __call__(self, request):
         if request.user.is_authenticated:
             user = User.objects.get(id=request.user.id)
-            user.last_loggin = now()
+            user.last_activity = now()
             user.save()
 
         response = self.get_response(request)
