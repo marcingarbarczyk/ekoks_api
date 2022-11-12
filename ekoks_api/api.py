@@ -18,7 +18,10 @@ schema_view_v1 = get_schema_view(
 )
 
 urlpatterns = [
+    # Apps
     path("membership/", include("apps.membership.urls")),
+    path("exercise-base/", include("apps.exercise_base.urls")),
+    # Swagger
     re_path(
         r"^swagger(?P<format>\.json|\.yaml)$",
         schema_view_v1.without_ui(cache_timeout=0),

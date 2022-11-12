@@ -1,0 +1,95 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-12 12:07+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: membership/authentication.py:35
+msgid "Authorization header must contain three space-delimited values"
+msgstr ""
+
+#: membership/authentication.py:55
+msgid "No user id"
+msgstr ""
+
+#: membership/authentication.py:60
+msgid "User not found"
+msgstr ""
+
+#: membership/authentication.py:63
+msgid "User is inactive"
+msgstr ""
+
+#: membership/common.py:4
+msgid "User"
+msgstr ""
+
+#: membership/common.py:5
+msgid "Admin"
+msgstr ""
+
+#: membership/models.py:15
+msgid "Users must have an email address"
+msgstr ""
+
+#: membership/models.py:85
+msgid "Is active User"
+msgstr ""
+
+#: membership/models.py:89
+msgid "User role"
+msgstr ""
+
+#: membership/models.py:91
+msgid "User Join Date"
+msgstr ""
+
+#: membership/models.py:92
+msgid "Last loggin Date"
+msgstr ""
+
+#: membership/viewsets.py:41
+msgid "Activate your blog account."
+msgstr ""
+
+#: membership/viewsets.py:70
+msgid "User not found!"
+msgstr ""
+
+#: membership/viewsets.py:73
+msgid "Incorrect password!"
+msgstr ""
+
+#: membership/viewsets.py:101
+msgid "Thank you for your email confirmation. Now you can login your account."
+msgstr ""
+
+#: membership/viewsets.py:107
+msgid "Activation link is invalid!"
+msgstr ""
+
+#: utils/mixins.py:25
+msgid "Created"
+msgstr ""
+
+#: utils/mixins.py:27
+msgid "Updated"
+msgstr ""
+
+#: utils/mixins.py:29
+msgid "Deleted"
+msgstr ""

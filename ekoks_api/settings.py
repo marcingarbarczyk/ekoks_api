@@ -21,6 +21,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "drf_yasg",
     "apps.membership",
+    "apps.exercise_base",
 ]
 
 MIDDLEWARE = [
