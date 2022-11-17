@@ -6,16 +6,16 @@ from apps.exercise_base.models import Exercise, Media, Group
 class ExerciseSerializer(ModelSerializer):
     class Meta:
         model = Exercise
-        fields = ["__all__"]
+        fields = ["id", "title", "description"]
 
 
 class MediaSerializer(ModelSerializer):
     class Meta:
         model = Media
-        fields = ["__all__"]
+        fields = ["id", "title", "description"]
 
 
 class GroupSerializer(ModelSerializer):
     class Meta:
         model = Group
-        fields = ["__all__"]
+        fields = ["id", "title", "description"]

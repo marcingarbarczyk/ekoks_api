@@ -24,7 +24,7 @@ class RegisterView(CreateAPIView):
     authentication_classes = []
 
     def perform_create(self, serializer):
-        super().perform_create(serializer)
+        serializer.save(is_active=False)
         send_auth_email(self.request, serializer.validated_data["email"])
 
 

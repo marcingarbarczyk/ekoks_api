@@ -9,7 +9,7 @@ from django.utils.translation import ugettext_lazy as _
 ROLES = (
     (1, _("User")),
     (2, _("Editor")),
-    (2, _("Super Admin")),
+    (3, _("Super Admin")),
 )
 
 
