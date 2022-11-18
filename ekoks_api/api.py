@@ -21,6 +21,7 @@ urlpatterns = [
     # Apps
     path("membership/", include("apps.membership.urls")),
     path("exercise-base/", include("apps.exercise_base.urls")),
+    path("training/", include("apps.training.urls")),
     # Swagger
     re_path(
         r"^swagger(?P<format>\.json|\.yaml)$",

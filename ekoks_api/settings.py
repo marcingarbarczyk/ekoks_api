@@ -20,8 +20,11 @@ INSTALLED_APPS = [
     "corsheaders",
     "rest_framework",
     "drf_yasg",
+    # APPS #
     "apps.membership",
     "apps.exercise_base",
+    "apps.training",
+    # END APPS #
 ]
 
 MIDDLEWARE = [
@@ -69,6 +72,8 @@ DATABASES = {
     }
 }
 
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
@@ -83,6 +88,10 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
+
+#############################
+#   Locale settings
+############################
 
 LANGUAGE_CODE = "en"
 LANGUAGES = (
@@ -100,9 +109,17 @@ USE_L10N = True
 
 USE_TZ = True
 
+
+#############################
+#   Static settings
+############################
+
 STATIC_URL = "/static/"
 
-DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+#############################
+#   Rest Framework
+############################
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
@@ -113,6 +130,9 @@ REST_FRAMEWORK = {
     "PAGE_SIZE": 10,
 }
 
+#############################
+#   Email settings
+############################
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 DEFAULT_FROM_EMAIL = ""
